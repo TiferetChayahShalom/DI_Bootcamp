@@ -1,0 +1,16 @@
+# Let's make it realistic - add some missing data
+tips_messy = tips.copy()
+
+# Randomly remove some tip values (simulating data entry errors)
+np.random.seed(42)
+missing_idx = np.random.choice(tips_messy.index, size=15, replace=False)
+tips_messy.loc[missing_idx, 'tip'] = np.nan
+
+print(f"Now we have {tips_messy['tip'].isna().sum()} missing tip values")
+print("\nUse `tips` (clean) for Q1-Q3, and `tips_messy` for Q4")
+
+
+
+# Check for missing data
+print("Missing values:")
+print(tips.isna().sum())
